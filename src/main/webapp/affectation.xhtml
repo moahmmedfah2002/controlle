@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html
+        xmlns = "http://www.w3.org/1999/xhtml"
+        xmlns:h = "http://java.sun.com/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+
+>
+
+<f:view>
+    <h:head>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:selectOneMenu  value = "#{f.option}">
+                <ui:repeat var="row" value="#{f.employs}">
+                <f:selectItem itemValue = "{row.id}" itemLabel = "{row.name}" />
+                </ui:repeat>
+            </h:selectOneMenu>
+            <h:inputTextarea value="#{f.employ}">
+                <ui:repeat var="row" value="#{f.employ.projets}">
+                    <f:selectItem itemValue = "{row.id}" itemLabel = "{row.name}" />
+                </ui:repeat>
+            </h:inputTextarea>
+            <h:commandButton value="sub" action="#{f.Affect()}"/>
+        </h:form>
+    </h:body>
+</f:view>
+</html>
